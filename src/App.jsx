@@ -4,7 +4,6 @@ import './App.css'
 import Login from './components/Login'
 import Register from './components/Register'
 import ForgotPassword from './components/ForgotPassword'
-import ParticleCanvas from './components/ParticleCanvas'
 import RightPanel from './components/RightPanel'
 import Toast from './components/Toast'
 import Dashboard from './components/Dashboard'
@@ -41,8 +40,7 @@ function PortalApp() {
   // Loading state while Supabase resolves session
   if (loading) {
     return (
-      <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', gap: '16px' }}>
-        <ParticleCanvas />
+      <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', gap: '16px', backgroundColor: '#fff' }}>
         <div style={{ position: 'relative', zIndex: 10, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '14px' }}>
           <div style={{
             width: '48px', height: '48px', borderRadius: '14px',
@@ -62,7 +60,6 @@ function PortalApp() {
   if (session) {
     return (
       <>
-        <ParticleCanvas />
         <Dashboard user={session.user} showToast={showToast} />
         <Toast toast={toast} />
       </>
@@ -71,8 +68,7 @@ function PortalApp() {
 
   // Unauthenticated — show auth portal
   return (
-    <div className="app-root">
-      <ParticleCanvas />
+    <div className="app-root" style={{ background: '#ffffff' }}>
       <div className="portal-shell">
         {/* Left panel */}
         <div className={`left-panel ${animating ? 'slide-out' : 'slide-in'}`}>
