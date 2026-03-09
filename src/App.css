@@ -436,3 +436,271 @@
   color: #9ca3af;
   font-size: 0.8rem;
 }
+
+/* ===================== AUTH PORTAL (PREVIOUS LOOK) ===================== */
+.app-root {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  position: relative;
+  z-index: 10;
+}
+
+.portal-shell {
+  width: 100%;
+  max-width: 1100px;
+  height: 680px;
+  display: flex;
+  background: white;
+  border-radius: 30px;
+  overflow: hidden;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  position: relative;
+  z-index: 10;
+}
+
+.left-panel {
+  width: 50%;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: white;
+  transition: transform 0.35s ease-in-out, opacity 0.3s;
+}
+
+.left-panel.slide-out {
+  transform: translateX(-20px);
+  opacity: 0;
+}
+
+.left-panel.slide-in {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.right-panel {
+  width: 50%;
+  background: linear-gradient(135deg, #1e3a6e 0%, #2d5299 100%);
+  color: white;
+  padding: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  position: relative;
+  overflow: hidden;
+}
+
+.rp-blob {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.05);
+  filter: blur(40px);
+  border-radius: 50%;
+}
+
+.rp-blob:nth-child(1) {
+  width: 300px;
+  height: 300px;
+  top: -100px;
+  right: -50px;
+}
+
+.rp-blob:nth-child(2) {
+  width: 200px;
+  height: 200px;
+  bottom: 50px;
+  left: -50px;
+}
+
+.rp-blob:nth-child(3) {
+  width: 150px;
+  height: 150px;
+  top: 150px;
+  left: 100px;
+}
+
+.rp-arc {
+  position: absolute;
+  top: -10%;
+  right: -10%;
+  width: 300px;
+  height: 300px;
+  border: 40px solid rgba(255, 255, 255, 0.03);
+  border-radius: 50%;
+  animation: rotate 20s linear infinite;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.rp-logo {
+  position: absolute;
+  top: 50px;
+  left: 60px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.rp-logo-text {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.rp-illustration {
+  margin-bottom: 40px;
+  width: 100%;
+}
+
+.rp-content {
+  position: relative;
+  z-index: 5;
+}
+
+.rp-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 38px;
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 20px;
+  white-space: pre-line;
+}
+
+.rp-sub {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+  max-width: 320px;
+}
+
+.rp-dots {
+  position: absolute;
+  bottom: 60px;
+  right: 60px;
+  display: flex;
+  gap: 8px;
+}
+
+.rp-dot {
+  width: 8px;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  transition: all 0.3s;
+}
+
+.rp-dot.active {
+  width: 24px;
+  background: #f97316;
+}
+
+.form-area {
+  animation: fadeIn 0.5s ease;
+  width: 100%;
+}
+
+.form-area h1 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: #1e3a6e;
+  margin-bottom: 8px;
+}
+
+.form-area .subtitle {
+  color: #6b7280;
+  font-size: 15px;
+  margin-bottom: 32px;
+}
+
+.field-wrap {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.field-wrap label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 8px;
+}
+
+.field-wrap input {
+  width: 100% !important;
+  padding: 14px 16px !important;
+  background: #f9fafb !important;
+  border: 2px solid #f3f4f6 !important;
+  border-radius: 12px !important;
+  transition: all 0.2s !important;
+  outline: none !important;
+}
+
+.field-wrap input:focus {
+  border-color: #3b82f6 !important;
+  background: white !important;
+}
+
+.btn-primary {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, #1e3a6e, #2d5299);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.social-row {
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.social-btn {
+  flex: 1;
+  padding: 10px;
+  border: 2px solid #f3f4f6;
+  border-radius: 12px;
+  background: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+@media (max-width: 1000px) {
+  .portal-shell {
+    height: auto;
+    flex-direction: column;
+  }
+
+  .left-panel,
+  .right-panel {
+    width: 100%;
+    padding: 40px;
+  }
+
+  .right-panel {
+    display: none;
+  }
+}

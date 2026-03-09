@@ -4,6 +4,7 @@ import './App.css'
 import Login from './components/Login'
 import Register from './components/Register'
 import ForgotPassword from './components/ForgotPassword'
+import ParticleCanvas from './components/ParticleCanvas'
 import RightPanel from './components/RightPanel'
 import Toast from './components/Toast'
 import Dashboard from './components/Dashboard'
@@ -68,7 +69,8 @@ function PortalApp() {
 
   // Unauthenticated — show auth portal
   return (
-    <div className="app-root" style={{ background: '#ffffff' }}>
+    <div className="app-root">
+      <ParticleCanvas />
       <div className="portal-shell">
         {/* Left panel */}
         <div className={`left-panel ${animating ? 'slide-out' : 'slide-in'}`}>
