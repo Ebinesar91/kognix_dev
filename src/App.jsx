@@ -8,12 +8,14 @@ import ParticleCanvas from './components/ParticleCanvas'
 import RightPanel from './components/RightPanel'
 import Toast from './components/Toast'
 import Dashboard from './components/Dashboard'
+import OTPVerify from './components/OTPVerify'
 
 function PortalApp() {
   const { session, loading } = useAuth()
   const [page, setPage] = useState('login')
   const [animating, setAnimating] = useState(false)
   const [toast, setToast] = useState({ show: false, msg: '', type: 'success' })
+  const [emailForVerification, setEmailForVerification] = useState('')
 
   function navigate(target) {
     if (target === page || animating) return
@@ -31,8 +33,9 @@ function PortalApp() {
 
   const pageForm = {
     login: <Login navigate={navigate} showToast={showToast} />,
-    register: <Register navigate={navigate} showToast={showToast} />,
+    register: <Register navigate={navigate} showToast={showToast} setEmailForVerification={setEmailForVerification} />,
     forgot: <ForgotPassword navigate={navigate} showToast={showToast} />,
+    otp: <OTPVerify navigate={navigate} showToast={showToast} email={emailForVerification} />,
   }
 
   // Loading state while Supabase resolves session

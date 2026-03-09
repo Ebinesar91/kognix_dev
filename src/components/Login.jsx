@@ -29,7 +29,11 @@ export default function Login({ navigate, showToast }) {
         setLoading(false)
         if (error) {
             console.error('[KogniX] Login error:', error)
-            showToast('✕ ' + error.message, 'error')
+            let msg = error.message
+            if (msg.toLowerCase().includes('email not confirmed')) {
+                msg = 'Please confirm your email using the OTP sent to you.'
+            }
+            showToast('✕ ' + msg, 'error')
         } else {
             console.log('[KogniX] Login success:', data)
             showToast('✓ Signed in successfully!', 'success')

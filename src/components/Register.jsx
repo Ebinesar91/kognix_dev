@@ -13,7 +13,7 @@ function strengthScore(v) {
     return s
 }
 
-export default function Register({ navigate, showToast }) {
+export default function Register({ navigate, showToast, setEmailForVerification }) {
     const [form, setForm] = useState({ name: '', studentId: '', email: '', pass: '', confirm: '' })
     const [showPass, setShowPass] = useState(false)
     const [showCon, setShowCon] = useState(false)
@@ -52,7 +52,6 @@ export default function Register({ navigate, showToast }) {
                     full_name: form.name,
                     student_id: form.studentId,
                 },
-                // Supabase will send a confirmation email
             },
         })
         setLoading(false)
@@ -61,10 +60,11 @@ export default function Register({ navigate, showToast }) {
             showToast('✕ ' + error.message, 'error')
         } else {
             console.log('[KogniX] Sign-up success:', data)
-            showToast('📧 Account created! Check your email to confirm.', 'info')
+            setEmailForVerification(form.email)
+            showToast('📧 Account created! Check your email for OTP.', 'info')
             setForm({ name: '', studentId: '', email: '', pass: '', confirm: '' })
             setAgree(false)
-            setTimeout(() => navigate('login'), 1400)
+            setTimeout(() => navigate('otp'), 1400)
         }
     }
 
